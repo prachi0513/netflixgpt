@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Options } from "../utils/constant";
+import { Options, POPULAR_API } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import { addAllPopularMovies } from "../utils/movieSlice.js";
 
@@ -11,10 +11,7 @@ const useAllPopularMovies = () => {
   }, []);
 
   const movies = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/popular",
-      Options
-    );
+    const data = await fetch(POPULAR_API, Options);
     const json = await data.json();
     dispatch(addAllPopularMovies(json.results));
   };
