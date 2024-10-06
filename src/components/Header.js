@@ -11,13 +11,6 @@ const Header = () => {
   const navigate = useNavigate();
   const user = auth.currentUser;
 
-  const handleSignOutUser = () => {
-    signOut(auth)
-      .then(() => {
-        dispatch(removeUser());
-      })
-      .catch((error) => {});
-  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -34,6 +27,14 @@ const Header = () => {
       unsubscribe();
     };
   }, []);
+
+  const handleSignOutUser = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch(removeUser());
+      })
+      .catch((error) => {});
+  };
 
   return (
     <div className="absolute w-screen px-8 py-2  bg-gradient-to-b from-black z-10 flex justify-between">
