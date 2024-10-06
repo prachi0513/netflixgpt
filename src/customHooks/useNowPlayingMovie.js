@@ -15,7 +15,7 @@ const useNowPlayingMovie = () => {
       Options
     );
     const json = await data.json();
-    console.log(json.results);
+
     dispatch(addAllPlayingMovies(json.results));
   };
 };

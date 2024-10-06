@@ -49,11 +49,11 @@ const Login = () => {
               );
             })
             .catch((error) => {
-              console.log("error in update profile");
+              //console.log("error in update profile");
             });
 
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -69,7 +69,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          //console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
