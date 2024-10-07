@@ -8,7 +8,6 @@ const GptsearchComp = () => {
       <div className="absolute -z-10">
         <img className="" alt="background image" src={BG_LOGO} />
       </div>
-
       <GptSearchBar />
     </div>
   );
