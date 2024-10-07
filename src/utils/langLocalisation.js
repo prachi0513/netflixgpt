@@ -1,5 +1,5 @@
 const langLocalisation = {
-  "en-US": {
+  en: {
     Search: "Search",
     GptSearchPlaceholder: "What do you wanna watch today ",
   },

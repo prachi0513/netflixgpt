@@ -16,7 +16,7 @@ export const BG_LOGO =
 export const AVAIL_LANG = [
   {
     name: "English",
-    identifier: "en-US",
+    identifier: "en",
   },
   {
     name: "Hindi",
