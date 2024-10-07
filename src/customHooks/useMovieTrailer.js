@@ -10,18 +10,18 @@ const useMovieTrailer = (movieId) => {
   }, []);
 
   const Trailers = async () => {
-    let data = await fetch(
+    const data = await fetch(
       "https://api.themoviedb.org/3/movie/" +
         movieId +
         "/videos?language=en-US",
       Options
     );
 
-    data = await data.json();
-    const filterTrailers = data.results.filter(
+    const json = await data.json();
+    const filterTrailers = json.results.filter(
       (video) => video.type === "Trailer"
     );
-    const trailer = filterTrailers.length ? filterTrailers[0] : data.results[0];
+    const trailer = filterTrailers.length ? filterTrailers[0] : json.results[0];
     dispatch(addTrailerMovies(trailer));
   };
 };
