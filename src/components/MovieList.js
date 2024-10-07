@@ -9,7 +9,9 @@ const MovieList = ({ title, movies }) => {
         <div className="flex">
           {movies &&
             movies.map((movie) => {
-              return <MovieCard poster_path={movie.poster_path} />;
+              return (
+                <MovieCard key={movie.id} poster_path={movie.poster_path} />
+              );
             })}
         </div>
       </div>
