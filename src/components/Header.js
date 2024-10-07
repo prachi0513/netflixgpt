@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { LOGO } from "../utils/constant";
+import { toggleGptSearch } from "../utils/searchGpt";
+
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,19 +38,33 @@ const Header = () => {
       .catch((error) => {});
   };
 
+  const handleSarchToggle = () => {
+    dispatch(toggleGptSearch());
+  };
+
   return (
     <div className="absolute w-screen px-8 py-2  bg-gradient-to-b from-black z-10 flex justify-between">
       <div>
         <img alt="logo" src={LOGO} className="w-44" />
       </div>
       {user && (
-        <div>
-          <button
-            className="bg-black text-white p-1 border-2 rounded-lg hover:bg-slate-400 mt-4"
-            onClick={handleSignOutUser}
-          >
-            Sign out
-          </button>
+        <div className="flex">
+          <div>
+            <button
+              className="bg-purple-500 m-2 py-2 px-4 rounded-lg text-white"
+              onClick={handleSarchToggle}
+            >
+              GPT Search
+            </button>
+          </div>
+          <div>
+            <button
+              className=" text-white m-2  py-2 px-1"
+              onClick={handleSignOutUser}
+            >
+              Sign out
+            </button>
+          </div>
         </div>
       )}
     </div>
